@@ -14,7 +14,6 @@ import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
 import Description from './movies/pages/Description';
 import AboutUs from './AboutUs/AboutUs';
-import Auth from './user/pages/Auth';
 import ShowTime from './showtimes/pages/ShowTime';
 import Buy from './shared/components/FormElements/Buy';
 const App = () => {
@@ -50,9 +49,6 @@ const App = () => {
           </Route>
           <Route path="/checkout/:theatreid/:movieid" exact>
             <Buy />
-          </Route>
-          <Route path="/auth">
-            <Auth />
           </Route>
           <Redirect to="/" />
         </Switch>

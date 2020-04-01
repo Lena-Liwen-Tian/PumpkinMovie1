@@ -48,7 +48,8 @@ const[have,sethave] = useState(true);
       <React.Fragment>
       {isLoading && (<div><LoadingSpinner /></div>)}
       {!isLoading && LoadedTheatre && <SingleplaceItem
-  name = {LoadedTheatre.cinema_name} 
+  name = {LoadedTheatre.cinema_name}
+  cinemaid = {LoadedTheatre.cinema_id}
   image={LoadedTheatre.image}
   address = {LoadedTheatre.address}
   phone = {LoadedTheatre.phone}

@@ -43,12 +43,7 @@ const NavLinks = props => {
           Cart
         </NavLink>
       </li>
-      <li>
-      <NavLink to="/auth" exact>
-          Login
-        </NavLink>
 
-      </li>
       
     </ul>
   );

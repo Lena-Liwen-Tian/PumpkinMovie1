@@ -37,7 +37,7 @@ const SingleplaceItem = props => {
               {props.movies.map(movie=><div className="t"><Card><table ><tr><Link to={`/description/${movie.imdbID}`}><td><strong>{movie.title}</strong></td></Link></tr>
            <tr><td>{movie.date}</td></tr><tr><td>{movie.time}</td></tr>
            
-           <tr><Link className="buy" to={`/checkout/${props.theatreid}/${props.imdbID}`}><strong><td>BUY</td></strong></Link></tr></table></Card></div>
+           <tr><Link className="buy" to={`/checkout/${props.cinemaid}/${movie.imdbID}`}><strong><td>BUY</td></strong></Link></tr></table></Card></div>
                 )}
             </div>}
           {!props.have && <div><p className="nomovie">Sorry, no movie shown at this cinema in recent days</p></div>}
