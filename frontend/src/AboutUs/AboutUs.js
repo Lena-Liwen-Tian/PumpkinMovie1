@@ -1,6 +1,9 @@
 import React from 'react';
 import './AboutUs.css';
-import logo from './WechatIMG2.jpeg';
+import commit from './commit.jpg';
+import issues from './issues.jpg';
+import backend from './backend.jpg';
+import frontend from './frontend.jpg';
 const AboutUs =() =>{
 
   return <div className ="about">
@@ -13,21 +16,46 @@ const AboutUs =() =>{
           <br /><br />
          I used three databases for this project, one movie database(description of movies),one show times database(different show times of moives),
          one theatre database(theatre locations and contact information in the United States).
-         Since this is only phase one, I did not really connect the three databases I found online. I am not sure what kind of 
-         interesting results it will be after I reorganize them and store them in my own database. But for now, I feel that the relationships
-         among these three databases are not simple. They have some many to many relationships, for instance a movie can have a lot of thow times,
-         and a lot of movies can be watched at the same time periods in the cinema. I also found that different types of movies have different 
-         show times, for instance, a horror film is always shown at night. I will keep seeing more interesting facts later.     
+         I have already registered an account name in these database and connected to all of them. Though they provide similar information, they are focused on 
+         different aspects. After fetching data, I cleaned some irrelevant information and connected these three collections in my Mongodb. I found that, we can use
+         the movie_id to find the theaters showing this movie and the showtimes of this movie. We can also use the theatre_id to find out movies shown at this theatre and
+         different showtimes. Showtime_id is also connected to the other two collections in the similar way. I hope I could find more connections later.  
          <br /><br />
           My group name is Pumpkin. For me, pumpkin means magic, I hope my website can let users feel magic.
           I complete this project by myself. My name is Liwen Tian, a student at UT-Austin.
           I am a first-year master student majoring in Information Science. I am in the Software Engineer track in our program. I
           have some experences of software development. I love Java best, but I am trying to learn more interesting languages now. This 
-          is my first time to use MERN. I always used Pyhton for backend before. I hope you enjoy my project.
-          I ran it locally in the first phase and upload it into Github several days before. I just found I had three commits. I did not have 
-          any issues.
+          is my first time to use MERN. I always used Pyhton for backend before. I completed both the front end and back end for this project. Till now, I created 19 commits
+          in total, I closed the issue in Phase 1 and generated 5 new user stories(issues) in this Phase. I completed 24 unit tests in total.
+          <br/>
+          <br/>
+          Total number of commits(19) are shown as follows:
+          I feel sorry that I tried to use Nodejs to connect to the GITHUB API at the very beginning, But it seems that they have 
+          some limit in the number of fetches per day. So I think showing you the screenshot is a better way, in case you cannot
+          see anything when the limit is reached.
+          <br/>
+          <br/>
+          <img style = {{marginLeft:"10%",width: "50%", height:"50%"}} src={commit}/>
+          <br />
+          <br />
+          Toal number of issues are shown below:
+          <br />
+          <br />
+          <img style = {{width: "50%", height:"50%"}} src={issues}/>
+          <br />
+          <br />
+          Backend Unit tests
+          <br/>
+          <br/>
+          <img style ={{width: "50%", height:"50%"}} src={backend}/>
+          <br />
+          <br />
+          Frontend Unit tests
+          <br/>
+          <br/>
+          <img style = {{width: "50%", height:"50%"}} src={frontend}/>
           <br /><br />
-        My website is connected to three databases. I use python to scrape the data through the APIs these three database provides.
+        My website is connected to three databases.
         <br />
         IMDB database:https://www.imdb.com/interfaces/
         <br />
@@ -35,8 +63,15 @@ const AboutUs =() =>{
         <br />
         MOVIEGLU database:https://developer.movieglu.com/
         <br />
-        I use full stack MERN to build this website. I use React for front end, Express and Node.js for back end development.
-        I create my own MongoDB database to hold all data scraped from the online databases and rearrange them in a way I want.
+        I used Python to scrape the data from IMDB, it changes its name to OMDB now, I got the movie information in details from
+        this database.
+        I used PHP to get the data from GRACENOTE. it only provides the sample codes of PHP. I got the showtimes information from it.
+        I also used Python to get the data from MOVIEGLUE, I got theaters information from it.
+
+        I use full stack MERN to build this website. I use React for front end, Express and Node.js for back end development. I used Mocha, Chai to test backend. I tested
+        different routes and I also tested the models I created. Besides Mocha, I used Jest and Enzyme to test the front end. I test a lot of React components and functions embeded in them.
+        For the GUI test, I followed the instruction, I used Selenium. I used AWS together with Heroku to deploy my website.
+        I create my own MongoDB database online to hold all data scraped from the online databases and rearrange them in a way I want.
         GitHub:https://github.com/Lena-Liwen-Tian/PumpkinMovie1
         <br /><br />
         I do not want you to see my face.
