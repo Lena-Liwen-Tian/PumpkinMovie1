@@ -17,7 +17,7 @@ const UserPlaces = () => {
     const fetchTheatres = async()=>{
       setisLoading(true);
       try{          
-        const response= await fetch(`http://localhost:5000/api/theatres`); 
+        const response= await fetch(`https://pumpkintry.herokuapp.com/api/theatres`); 
         const responseData = await response.json();
         if(!response.ok){
     
@@ -50,7 +50,7 @@ const UserPlaces = () => {
 
   return(       
     <React.Fragment>
-    <PaginationPage postsPerPage={postsPerPage} totalPosts={LoadedTheatres.length} paginate={paginate}/>
+    <PaginationPage postsPerPage={postsPerPage} totalPosts={LoadedTheatres.length} currentpage={currentPage} paginate={paginate}/>
     {isLoading && (<div><LoadingSpinner /></div>)}
     {!isLoading && LoadedTheatres && <PlaceList items={currentPosts} />}
      </React.Fragment>)

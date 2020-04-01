@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test showtimelist timelist list rendered correctly 1`] = `
+<span
+  className="u"
+>
+  <div
+    className="con"
+  >
+    <ShowTimeItem
+      date="2015-05-05"
+      imdbID="123"
+      key="123"
+      theatre="hello"
+      theatreid="1"
+    />
+  </div>
+</span>
+`;

@@ -18,7 +18,7 @@ import MovieDescription from'./MovieDescription';
       try{          
         console.log(movieid);
         console.log(movieid);
-        const response= await fetch(`http://localhost:5000/api/movies/${movieid}`); 
+        const response= await fetch(`https://pumpkintry.herokuapp.com/api/movies/${movieid}`); 
         const responseData = await response.json();
         console.log(responseData)
         if(!response.ok){

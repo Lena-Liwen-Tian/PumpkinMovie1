@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,10 +7,9 @@ const showtimesRoutes = require('./routes/showtimes-routes');
 const HttpError = require('./models/http-error');
 const moviesRoutes = require('./routes/movies-routes');
 const cinemasRoutes = require('./routes/cinemas-routes');
+
 const app = express();
 app.use(bodyParser.json());
-
-
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
@@ -50,9 +48,11 @@ mongoose
   .then(() => {
    
     app.listen(5000);
+    console.log("connected!");
   })
   .catch(err => {
     console.log(err);
   });
 
 
+  module.exports = app;

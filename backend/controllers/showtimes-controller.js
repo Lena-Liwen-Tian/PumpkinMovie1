@@ -22,7 +22,7 @@ const getShowtimesByTime = async(req,res,next)=>{
         );
         return next(error);
     }
-    res.json({showtimes:showtimes.map(showtime=>showtime.toObject({getters:true}))});
+    res.json(200,{showtimes:showtimes.map(showtime=>showtime.toObject({getters:true}))});
 
 };
 

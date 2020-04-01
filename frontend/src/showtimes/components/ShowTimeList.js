@@ -6,8 +6,6 @@ const ShowTimeList = props =>{
         return (
           <span className="u">
             {props.items.map(time => (    
-              
-
               <div className="con">       
               <ShowTimeItem
                 key={time._id}

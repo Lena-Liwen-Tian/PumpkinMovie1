@@ -17,7 +17,7 @@ const Movies = () => {
     const fetchMovies = async()=>{
       setisLoading(true);
       try{          
-        const response= await fetch(`http://localhost:5000/api/movies`); 
+        const response= await fetch(`https://pumpkintry.herokuapp.com/api/movies`); 
         const responseData = await response.json();
         if(!response.ok){
     
@@ -51,7 +51,7 @@ const Movies = () => {
 
   return(       
     <React.Fragment>
-    <PaginationPage postsPerPage={postsPerPage} totalPosts={LoadedMovies.length} paginate={paginate}/>
+    <PaginationPage postsPerPage={postsPerPage} currentpage={currentPage} totalPosts={LoadedMovies.length} paginate={paginate}/>
     {isLoading && (<div><LoadingSpinner /></div>)}
     {!isLoading && LoadedMovies&&<MovieList items={currentPosts}/>} 
     </React.Fragment>)

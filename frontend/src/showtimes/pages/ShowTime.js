@@ -7,6 +7,7 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import axios from 'axios';
     
     const ShowTime = props => {
+    
       const timeid = useParams().timeid;
       const [LoadedShowtimes, setLoadedShowtimes] = useState();
       const [isLoading,setisLoading] = useState(false);
@@ -15,9 +16,11 @@ import axios from 'axios';
         
          const fetchShowtimes = async () => {
           setisLoading(true);
+
           try{          
-            const response= await fetch(`http://localhost:5000/api/showtimes/${timeid}`); 
+            const response= await fetch(`https://pumpkintry.herokuapp.com/api/showtimes/${timeid}`); 
             const responseData = await response.json();
+            
             if(!response.ok){
               throw new Error(responseData.message);
             }

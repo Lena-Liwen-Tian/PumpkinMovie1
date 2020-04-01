@@ -7,7 +7,7 @@ import { relativeTimeThreshold } from 'moment';
 import { Link } from 'react-router-dom';
 
 class Calendar extends React.Component {
- newDate = new Date();
+ newDate = new Date("2020-03-23");
 
   state = {
     currentWeek: this.newDate,

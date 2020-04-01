@@ -17,7 +17,7 @@ const[have,sethave] = useState(true);
        const fetchTheatre = async () => {
         setisLoading(true);
         try{          
-          const response= await fetch(`http://localhost:5000/api/theatres/${theaterId}`); 
+          const response= await fetch(`https://pumpkintry.herokuapp.com/api/theatres/${theaterId}`); 
           const responseData = await response.json();
           
           if(!response.ok){
@@ -48,7 +48,8 @@ const[have,sethave] = useState(true);
       <React.Fragment>
       {isLoading && (<div><LoadingSpinner /></div>)}
       {!isLoading && LoadedTheatre && <SingleplaceItem
-  name = {LoadedTheatre.cinema_name} 
+  name = {LoadedTheatre.cinema_name}
+  cinemaid = {LoadedTheatre.cinema_id}
   image={LoadedTheatre.image}
   address = {LoadedTheatre.address}
   phone = {LoadedTheatre.phone}

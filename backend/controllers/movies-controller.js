@@ -4,6 +4,7 @@ const{validationResult} = require("express-validator");
 const mongoose = require("mongoose");
 const Movies = require("../models/movies");
 const Showtimes = require("../models/showtimes");
+
 const getMovies = async(req,res,next)=>{
     
     try{      
@@ -18,7 +19,7 @@ const getMovies = async(req,res,next)=>{
         );
         return next(error);
     }
-    res.json({movies:movies.map(movie=>movie.toObject({getters:true}))});
+    res.json(200,{movies:movies.map(movie=>movie.toObject({getters:true}))});
 
 };
 const getMovieById = async(req,res,next)=>{
@@ -51,7 +52,7 @@ const getMovieById = async(req,res,next)=>{
         const error = new HttpError("Somthing went wrong, could not find this theatre",500);
         return next(error);
 } 
-    res.json({movie:movie[0].toObject({getters:true}),showtimes:result.map(r=>r.toObject({getters:true}))});
+    res.json(200,{movie:movie[0].toObject({getters:true}),showtimes:result.map(r=>r.toObject({getters:true}))});
 };
 
 exports.getMovies = getMovies;

@@ -19,7 +19,7 @@ const getCinemas = async(req,res,next)=>{
         );
         return next(error);
     }
-    res.json({cinemas:cinemas.map(cinema=>cinema.toObject({getters:true}))});
+    res.json(200,{cinemas:cinemas.map(cinema=>cinema.toObject({getters:true}))});
 
 };
 
@@ -58,12 +58,7 @@ const getCinemaById = async(req,res,next)=>{
             const error = new HttpError("Somthing went wrong, could not find this theatre",500);
             return next(error);
     } 
-    res.json({cinema:cinema[0].toObject({getters:true}),movies:result.map(r=>r.toObject({getters:true}))});
-                
-    
-
-    
-    
+    res.json(200,{cinema:cinema[0].toObject({getters:true}),movies:result.map(r=>r.toObject({getters:true}))});   
 };
 
 exports.getCinemas= getCinemas;
