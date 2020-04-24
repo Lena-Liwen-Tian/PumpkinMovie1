@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Cinemas = require("../theatres");
 const Showtimes = require("../showtimes");
 const Movies = require("../movies");
+
 const chai = require('chai');
 const expect = chai.expect;
 // Create a new schema that accepts a 'name' object.
@@ -50,6 +51,11 @@ describe('Database Tests', function() {
           done();
         });
       });
+      
+     
+        //Look up the 'Mike' object previously saved.
+         
+      
   });
     
     //After all tests are finis

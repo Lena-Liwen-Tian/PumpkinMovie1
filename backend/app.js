@@ -7,6 +7,11 @@ const showtimesRoutes = require('./routes/showtimes-routes');
 const HttpError = require('./models/http-error');
 const moviesRoutes = require('./routes/movies-routes');
 const cinemasRoutes = require('./routes/cinemas-routes');
+const cartRoutes = require('./routes/cart-routes');
+const usersRoutes = require('./routes/users-routes');
+if(process.env.NODE_ENV!=='production'){
+  require('dotenv').config({path:'./.env'})
+}
 
 const app = express();
 app.use(bodyParser.json());
@@ -24,7 +29,9 @@ app.use((req, res, next) => {
 app.use('/api/showtimes',showtimesRoutes);
 app.use('/api/movies',moviesRoutes);
 app.use('/api/theatres',cinemasRoutes);
+app.use('/api/users', usersRoutes);
 
+app.use('/cart',cartRoutes);
 //the midware only runs when the route cannot be found
 app.use((req,res,next)=>{
     const error = new HttpError("Could not find this route",404);
@@ -47,7 +54,7 @@ mongoose
   )
   .then(() => {
    
-    app.listen(5000);
+    app.listen(process.env.PORT || 5000);
     console.log("connected!");
   })
   .catch(err => {

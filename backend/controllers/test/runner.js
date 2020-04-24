@@ -15,7 +15,8 @@ const showtimesControllers = require("../showtimes-controller");
 const getShowtimesByTime = showtimesControllers.getShowtimesByTime;
 const HttpError = require("../../models/http-error");
 const Cinemas = require("../../models/theatres");
-
+const Users = require("../users-controllers");
+const getUsers = Users.getUsers;
 const Showtimes = require("../../models/showtimes");
 const stringSimilarity = require('string-similarity');
 const Promise = require('promise');
@@ -128,6 +129,22 @@ describe("connect to mongoose",()=>{
             getCinemaById(req,res,next);
             
         })
+    })
+      
+    describe("GET Users",()=>{
+               
+            it("should respond with an object of user array",(done)=>{          
+                let req = {};
+                let res = testUtils.responseValidatorAsync(200,(users)=>{
+                               
+                    users.users[0].should.have.property("email");
+                    done();
+                   
+                });
+                getUsers(req,res);
+                
+            })
+        
     })
     after(function(done){
         mongoose.connection.db.dropDatabase(function(){
