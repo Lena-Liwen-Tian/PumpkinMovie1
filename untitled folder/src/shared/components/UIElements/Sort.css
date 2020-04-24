@@ -1,0 +1,14 @@
+.dropdown{  
+    margin-left:0;
+}
+.dropdown-toggle{
+   background-color: white;
+   border-color:white;
+  
+}
+.btn-primary{
+    color:#fd7e14;
+}
+.dropdown-item :hover{
+    background-color:#fd7e14!important;
+}

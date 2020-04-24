@@ -1,0 +1,44 @@
+
+.location{
+    position: absolute;
+    margin-top: 30%;
+}
+.box{
+    background-color: white;
+    margin-bottom:3%;
+    margin-right:5%;
+    margin-left:3%;
+    padding:2%;
+    display: block;
+    width:150px;
+    height:100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.mg{
+    width:145px;
+    height:180px;
+    margin-left:auto;
+    
+}
+.showtimetitle{
+    font-size:10pt;
+    margin-top:10%;
+    text-align:center;
+ 
+}
+
+.showtimecontent{
+    font-size: 8pt;
+    padding-left:5%;
+    padding-right:5%;
+    text-align:center;
+
+}
+.time{
+    color:#FF7417;
+}
+.fontbox{
+    width:100%;
+}
+
