@@ -1,0 +1,19 @@
+.about{
+  margin-top:-2%;
+  height:100%;
+  display:block;
+  width:100%;
+  background-image: url("./WechatIMG2.jpeg");
+}
+
+.about p{
+  font-size:20pt;
+  color:white;
+  padding-top:5%;
+  padding-left:10%;
+  padding-right:10%;
+  padding-bottom:20%;
+  
+}
+
+

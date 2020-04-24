@@ -1,0 +1,25 @@
+.movielist{
+    list-style: none;
+    margin-left:2%;   
+    width: 100%;
+    max-width: 100rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.t{
+    margin-right: 5%;
+    width:15%;
+    margin-bottom:2%;
+    
+}
+.t td{
+   color:#FF7417;
+}
+.nomovie{
+margin-top:5%;
+    color:white;
+    font-size: 25pt;
+    text-align: center;
+}

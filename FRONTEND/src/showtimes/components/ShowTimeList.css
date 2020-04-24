@@ -1,0 +1,14 @@
+.u{    
+    display: flex;
+    overflow-x: scroll;
+    background-color:#D0D0D0;
+
+}
+.con{
+    padding-top:2%;
+    padding-bottom:2%;
+    display:block;
+    margin-right:2%;
+    
+
+}
