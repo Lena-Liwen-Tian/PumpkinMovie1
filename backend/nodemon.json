@@ -1,0 +1,9 @@
+{
+    "env":{
+        "DB_USER":"LenaTian",
+        "DB_PASSWORD":"TLWtlw940418",
+        "DB_NAME":"pumpkinmovie",
+        "GOOGLE_API_KEY":"AIzaSyC6SnucHKV1c5cCIfdEVESWj3oRo7nT-fo",
+        "JWT_KEY":"supersecret_dont_share"
+    }
+}

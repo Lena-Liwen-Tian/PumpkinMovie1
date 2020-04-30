@@ -1,7 +1,7 @@
 const axios = require("axios");
 const HttpError = require("../models/http-error");
 
-const API_KEY = "AIzaSyC6SnucHKV1c5cCIfdEVESWj3oRo7nT-fo";
+const API_KEY = process.env.GOOGLE_API_KEY;
 
 //take the address and convert it to latitude
 //asynchronous 
