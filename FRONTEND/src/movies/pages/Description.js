@@ -18,7 +18,7 @@ import ShowTimeList from '../../showtimes/components/ShowTimeList';
       try{          
         console.log(movieid);
         console.log(movieid);
-        const response= await fetch(`https://pumpkinphasethree.herokuapp.com/api/movies/${movieid}`); 
+        const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/movies/${movieid}`); 
         const responseData = await response.json();
         console.log(responseData)
         if(!response.ok){

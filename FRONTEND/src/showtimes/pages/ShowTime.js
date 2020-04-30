@@ -28,7 +28,7 @@ import './Showtime.css';
           setisLoading(true);
 
           try{          
-            const response= await fetch(`https://pumpkinphasethree.herokuapp.com/api/showtimes/${timeid}`); 
+            const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/showtimes/${timeid}`); 
             const responseData = await response.json();
             
             if(!response.ok){

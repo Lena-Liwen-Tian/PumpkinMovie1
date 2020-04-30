@@ -26,7 +26,7 @@ const Movies = () => {
     const fetchMovies = async()=>{
       setisLoading(true);
       try{          
-        const response= await fetch(`https://pumpkinphasethree.herokuapp.com/api/movies`); 
+        const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/movies`); 
         const responseData = await response.json();
         if(!response.ok){
     

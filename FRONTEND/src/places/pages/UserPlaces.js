@@ -27,7 +27,7 @@ const UserPlaces = () => {
     const fetchTheatres = async()=>{
       setisLoading(true);
       try{          
-        const response= await fetch(`https://pumpkinphasethree.herokuapp.com/api/theatres`); 
+        const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/theatres`); 
         const responseData = await response.json();
         if(!response.ok){
     
