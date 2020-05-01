@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
-import ShowListItem from './ShowListItem';
 import Button from '../../shared/components/FormElements/Button';
 import './ShowList.css';
 

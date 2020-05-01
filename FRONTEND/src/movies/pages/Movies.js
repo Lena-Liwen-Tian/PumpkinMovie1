@@ -41,13 +41,16 @@ const Movies = () => {
    const indexOfFirstPost = indexOfLastPosts - postsPerPage;
    const paginate = pageNumber => setcurrentPage(pageNumber);
 
+   function toLower(a){
+     return a.Title.toLowerCase();
+   }
    const sortby = method => {
      let movies;
      if(method === "Title (A-Z)"){
         movies = LoadedMovies.sort((a,b)=>{
         setSort(method);
-        if(a.Title.toLowerCase() < b.Title.toLowerCase()) return -1;
-        if(a.Title.toLowerCase() > b.Title.toLowerCase()) return 1;
+        if(toLower(a) < toLower(b)) return -1;
+        if(toLower(a) > toLower(b)) return 1;
         return 0;
       })
      }else if(method === "Year (most recent)"){

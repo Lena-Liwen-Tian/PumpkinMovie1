@@ -3,12 +3,12 @@ import ShowTimeList from '../components/ShowTimeList';
 import { useParams } from 'react-router-dom';
 import Calendar from '../components/calendar';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import axios from 'axios';
 import Sortbutton from '../../shared/components/UIElements/Sort';
 import Searchbutton from '../../shared/components/UIElements/Search';
 import Filterbutton from '../../shared/components/UIElements/Filter';
 
 import './Showtime.css';
+
     const ShowTime = props => {
       const { isLoading, error, sendRequest, clearError } = useHttpClient();
       const timeid = useParams().timeid;
@@ -18,8 +18,6 @@ import './Showtime.css';
   const[Filter,setFilter] = useState("");
   const[Search,setSearch] = useState("");
   const[originalmovies,setoriginalmovies]=useState([]);
-  const[filtermovies,setfiltermovies] = useState([]);
-
 
 
       useEffect(() => {
