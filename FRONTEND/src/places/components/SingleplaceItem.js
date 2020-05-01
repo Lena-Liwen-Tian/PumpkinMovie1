@@ -2,8 +2,7 @@ import Button from '../../shared/components/FormElements/Button';
 import React, { useState } from 'react';
 import './SingleplaceItem.css';
 import ModalOverlay from '../../shared/components/UIElements/ModalOverlay';
-import Card from '../../shared/components/UIElements/Card';
-import { Link } from 'react-router-dom';
+
 const SingleplaceItem = props => {
 
   const [show,setShow] = useState(false);

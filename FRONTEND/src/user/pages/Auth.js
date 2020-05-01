@@ -3,7 +3,6 @@ import React, { useState, useContext,useEffect } from 'react';
 import Card from '../../shared/components/UIElements/Card';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import {
   VALIDATOR_EMAIL,
@@ -115,7 +114,6 @@ const Auth = () => {
   return (
     <React.Fragment>
       <Card className="authentication">
-        {isLoading && <LoadingSpinner asOverlay />}
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
             <Input

@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import StripeCheckout from 'react-stripe-checkout';
-import LoadingSpinner from '../UIElements/LoadingSpinner';
 import axios from "axios";
 import {toast} from "react-toastify";
 import { useHttpClient } from '../../../shared/hooks/http-hook';
@@ -58,7 +57,7 @@ toast.configure();
 }
   return (
     <React.Fragment>
-      {isLoading && (<div><LoadingSpinner /></div>)}
+     
     {!isLoading && LoadedDes && 
     <div className="ticket">
     <div className="row no-gutters">

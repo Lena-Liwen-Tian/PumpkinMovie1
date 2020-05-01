@@ -1,7 +1,7 @@
 import React from 'react';
 
  const MovieDescription = props => {
-     let genre = props.des.Genre;
+
      return(
       <React.Fragment>
     <div className="card mb-3" style={{maxwidth: "540px"}}>

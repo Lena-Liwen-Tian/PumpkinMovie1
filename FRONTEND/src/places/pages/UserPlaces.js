@@ -2,12 +2,11 @@ import PlaceList from '../components/PlaceList';
 import React, { useEffect,useState } from 'react';
 
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import PaginationPage from '../../shared/components/UIElements/pagination';
 import Sortbutton from '../../shared/components/UIElements/Sort';
 import Searchbutton from '../../shared/components/UIElements/Search';
 import Filterbutton from '../../shared/components/UIElements/Filter';
-import Button from '../../shared/components/FormElements/Button';
+
 const UserPlaces = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const[LoadedTheatres,setLoadedTheatres] = useState([]);
@@ -129,7 +128,6 @@ const UserPlaces = () => {
      </tr>
    </table>
       
-    {isLoading && (<div><LoadingSpinner /></div>)}
     {!isLoading && LoadedTheatres && <PlaceList items={currentPosts} />}
      </React.Fragment>)
   };

@@ -3,7 +3,6 @@ import ShowTimeList from '../components/ShowTimeList';
 import { useParams } from 'react-router-dom';
 import Calendar from '../components/calendar';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import axios from 'axios';
 import Sortbutton from '../../shared/components/UIElements/Sort';
 import Searchbutton from '../../shared/components/UIElements/Search';
@@ -29,10 +28,8 @@ import './Showtime.css';
           try{                  
             const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/showtimes/${timeid}`);
             setLoadedShowtimes(responseData.showtimes);
-            setoriginalmovies(responseData.showtimes)
-            
-          } catch (err) {
-           
+            setoriginalmovies(responseData.showtimes)          
+          } catch (err) {          
           }
         };
 
@@ -115,9 +112,6 @@ import './Showtime.css';
         </tr>
       </table>
       <Calendar />
-        {isLoading && (<div>
-          <LoadingSpinner />
-        </div>)}  
       {!isLoading && LoadedShowtimes&&<ShowTimeList items={LoadedShowtimes}/>}
       </React.Fragment>);
 };

@@ -2,7 +2,6 @@ import './Movies.css';
 import React, { useEffect,useState } from 'react';
 import MovieList from '../components/MovieList';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import PaginationPage from '../../shared/components/UIElements/pagination';
 import Sortbutton from '../../shared/components/UIElements/Sort';
 import Searchbutton from '../../shared/components/UIElements/Search';
@@ -161,9 +160,6 @@ const Movies = () => {
      </td>
      </tr>
    </table>
-      
-
-    {isLoading && (<div><LoadingSpinner /></div>)}
     {!isLoading && LoadedMovies&&<MovieList items={currentPosts}/>} 
     </React.Fragment>)
   };

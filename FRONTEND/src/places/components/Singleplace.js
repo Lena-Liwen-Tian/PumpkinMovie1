@@ -2,9 +2,6 @@ import { useParams } from 'react-router-dom';
 import React,{useState,useEffect} from 'react';
 import SingleplaceItem from './SingleplaceItem';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
-import Button from '../../shared/components/FormElements/Button';
-import Card from '../../shared/components/UIElements/Card';
 import ShowTimeList from '../../showtimes/components/ShowTimeList';
 
 const Singleplace = props => {
@@ -14,7 +11,7 @@ const Singleplace = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 const[have,sethave] = useState(true);
     useEffect(() => {
-       const fetchTheatre = async () => {
+      const fetchTheatre = async () => {
         try{          
           const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/theatres/${theaterId}`);
           if(responseData.movies.length === 0) {
@@ -34,7 +31,6 @@ const[have,sethave] = useState(true);
    
     return (
       <React.Fragment>
-      {isLoading && (<div><LoadingSpinner /></div>)}
       {!isLoading && LoadedTheatre && <SingleplaceItem
   name = {LoadedTheatre.cinema_name}
   cinemaid = {LoadedTheatre.cinema_id}
