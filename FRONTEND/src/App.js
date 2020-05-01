@@ -1,4 +1,4 @@
-import React, { useState, useCallback }  from 'react';
+import React, {Suspense, useState, useCallback }  from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,7 +8,6 @@ import {
 import Welcome from './welcome/welcome';
 import Singleplace from './places/components/Singleplace';
 import Movies from './movies/pages/Movies';
-import Reviews from './Reviews/pages/Reviews'
 import UserPlaces from './places/pages/UserPlaces';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
@@ -18,6 +17,8 @@ import ShowTime from './showtimes/pages/ShowTime';
 import Buy from './shared/components/FormElements/Buy';
 import Auth from './user/pages/Auth';
 import { useAuth } from './shared/hooks/auth-hook';
+
+
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -38,9 +39,7 @@ const App = () => {
           <Route path="/places" exact>
             <UserPlaces />
           </Route>
-          <Route path="/reviews" exact>
-            <Reviews />
-          </Route>
+       
           <Route path="/description/:movieId" exact>
             <Description />
           </Route>

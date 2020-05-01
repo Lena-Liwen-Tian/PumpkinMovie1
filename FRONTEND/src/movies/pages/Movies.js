@@ -7,11 +7,9 @@ import PaginationPage from '../../shared/components/UIElements/pagination';
 import Sortbutton from '../../shared/components/UIElements/Sort';
 import Searchbutton from '../../shared/components/UIElements/Search';
 import Filterbutton from '../../shared/components/UIElements/Filter';
-import Button from '../../shared/components/FormElements/Button';
 const Movies = () => {
+  const {isLoading, error, sendRequest,clearError} = useHttpClient();
   const[LoadedMovies,setLoadedMovies] = useState([]);
-  const[isLoading,setisLoading] = useState(false);
-  const[error,setError] = useState();
   const[currentPage,setcurrentPage] = useState(1);
   const postsPerPage = 20;
   const [currentPosts,setcurrentPosts] = useState([]);
@@ -24,21 +22,14 @@ const Movies = () => {
   useEffect(()=>{
 
     const fetchMovies = async()=>{
-      setisLoading(true);
+
       try{          
-        const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/movies`); 
-        const responseData = await response.json();
-        if(!response.ok){
-    
-          throw new Error(responseData.message);
-        }
+        const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/movies`);
         setfiltermovies(responseData.movies);
         setoriginalmovies(responseData.movies);
         setLoadedMovies(responseData.movies);
       } catch (err) {
-        setError(err.message);
       }
-      setisLoading(false);
     };
 
     fetchMovies();

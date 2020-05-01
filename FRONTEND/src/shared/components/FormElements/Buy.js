@@ -1,18 +1,16 @@
 import React,{useState,useEffect} from 'react';
-import Card from '../UIElements/Card';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import StripeCheckout from 'react-stripe-checkout';
 import LoadingSpinner from '../UIElements/LoadingSpinner';
 import axios from "axios";
 import {toast} from "react-toastify";
-import Button from './Button';
+import { useHttpClient } from '../../../shared/hooks/http-hook';
 import './Buy.css';
 
 const Buy = props => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [LoadedDes, setLoadedDes] = useState();
-const [isLoading,setisLoading] = useState(false);
-const [error, setError] = useState();
 toast.configure();
     let movieid = useParams().movieid;
     let theatre =useParams().theatreid;
@@ -35,21 +33,14 @@ toast.configure();
     useEffect(() => {
       const fetchMovie = async () => {
       console.log(movieid);
-       setisLoading(true);
        try{          
-         const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/movies/${movieid}`); 
-         const responseData = await response.json();
-         console.log(responseData)
-         if(!response.ok){
-           console.log(responseData)
-           throw new Error(responseData.message);
-         }
+         const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/movies/${movieid}`);
+  
          setLoadedDes(responseData.movie);   
-         console.log(LoadedDes);    
+      
        } catch (err) {
-         setError(err.message);
+         
        }
-       setisLoading(false);
      };
  
      fetchMovie();

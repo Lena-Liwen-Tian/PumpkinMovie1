@@ -6,23 +6,17 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import Button from '../../shared/components/FormElements/Button';
 import Card from '../../shared/components/UIElements/Card';
 import ShowTimeList from '../../showtimes/components/ShowTimeList';
+
 const Singleplace = props => {
   const theaterId = useParams().theaterId;
   const [LoadedTheatre, setLoadedTheatre] = useState();
   const [LoadedMovies,setLoadedMovies] = useState([]);
-  const [isLoading,setisLoading] = useState(false);
-  const [error, setError] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 const[have,sethave] = useState(true);
     useEffect(() => {
        const fetchTheatre = async () => {
-        setisLoading(true);
         try{          
-          const response= await fetch(`https://pumpkinphasethree.herokuapp.com/${theaterId}`); 
-          const responseData = await response.json();
-          
-          if(!response.ok){
-            throw new Error(responseData.message);
-          }
+          const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/theatres/${theaterId}`);
           if(responseData.movies.length === 0) {
             sethave(false);
         }
@@ -30,19 +24,13 @@ const[have,sethave] = useState(true);
           setLoadedMovies(responseData.movies);
           
         } catch (err) {
-          setError(err.message);
-        }
-        setisLoading(false);
-       
-      
+        }     
       };
   
       fetchTheatre();
    
     },[theaterId]);
-    const errorHandler = () =>{
-      setError=(null);
-    }
+
    
     return (
       <React.Fragment>

@@ -9,9 +9,8 @@ import Searchbutton from '../../shared/components/UIElements/Search';
 import Filterbutton from '../../shared/components/UIElements/Filter';
 import Button from '../../shared/components/FormElements/Button';
 const UserPlaces = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const[LoadedTheatres,setLoadedTheatres] = useState([]);
-  const[isLoading,setisLoading] = useState(false);
-  const[error,setError] = useState();
   const[currentPage,setcurrentPage] = useState(1);
   const postsPerPage = 20;
   const [currentPosts,setcurrentPosts] = useState([]);
@@ -25,20 +24,12 @@ const UserPlaces = () => {
   useEffect(()=>{
 
     const fetchTheatres = async()=>{
-      setisLoading(true);
       try{          
-        const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/theatres`); 
-        const responseData = await response.json();
-        if(!response.ok){
-    
-          throw new Error(responseData.message);
-        }
+        const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/theatres`);
         setoriginaltheatres(responseData.cinemas)
         setLoadedTheatres(responseData.cinemas);
       } catch (err) {
-        setError(err.message);
       }
-      setisLoading(false);
     };
 
     fetchTheatres();
@@ -114,9 +105,6 @@ const UserPlaces = () => {
     setcurrentPosts(LoadedTheatres.slice(indexOfFirstPost,indexOfLastPosts))};
     updatePosts()},[LoadedTheatres,currentPage,Sort,Filter,Search]);
 
-  const errorHandler = () =>{
-    setError=(null);
-  }
    
   
 

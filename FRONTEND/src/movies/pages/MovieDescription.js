@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from '../../shared/components/FormElements/Button';
-import {Link} from 'react-router-dom';
-import Card from '../../shared/components/UIElements/Card';
+
  const MovieDescription = props => {
      let genre = props.des.Genre;
      return(
