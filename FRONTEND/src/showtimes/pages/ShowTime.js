@@ -8,12 +8,13 @@ import axios from 'axios';
 import Sortbutton from '../../shared/components/UIElements/Sort';
 import Searchbutton from '../../shared/components/UIElements/Search';
 import Filterbutton from '../../shared/components/UIElements/Filter';
+
 import './Showtime.css';
     const ShowTime = props => {
+      const { isLoading, error, sendRequest, clearError } = useHttpClient();
       const timeid = useParams().timeid;
       const [LoadedShowtimes, setLoadedShowtimes] = useState();
-      const [isLoading,setisLoading] = useState(false);
-      const [error, setError] = useState();
+  
   const [Sort,setSort] = useState("");
   const[Filter,setFilter] = useState("");
   const[Search,setSearch] = useState("");
@@ -25,33 +26,19 @@ import './Showtime.css';
       useEffect(() => {
         
          const fetchShowtimes = async () => {
-          setisLoading(true);
-
-          try{          
-            const response= await fetch(process.env.REACT_APP_BACKEND_URL + `/showtimes/${timeid}`); 
-            const responseData = await response.json();
-            
-            if(!response.ok){
-              throw new Error(responseData.message);
-            }
+          try{                  
+            const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + `/showtimes/${timeid}`);
             setLoadedShowtimes(responseData.showtimes);
             setoriginalmovies(responseData.showtimes)
             
           } catch (err) {
-            setError(err.message);
+           
           }
-          setisLoading(false);
         };
 
         fetchShowtimes();
       },[timeid]);
-      const errorHandler = () =>{
-        setError=(null);
-      }
-
-
-
-
+      
       const sortby = method => {
         let movies;
         if(method === "Title (A-Z)"){
