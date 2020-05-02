@@ -6,15 +6,7 @@ import NavLinks from './NavLinks';
 import './MainNavigation.css';
 
 const MainNavigation = props => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-
-  const openDrawerHandler = () => {
-    setDrawerIsOpen(true);
-  };
-
-  const closeDrawerHandler = () => {
-    setDrawerIsOpen(false);
-  };
+  
 
   return (
     <React.Fragment>

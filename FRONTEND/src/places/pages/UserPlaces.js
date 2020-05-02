@@ -8,7 +8,7 @@ import Searchbutton from '../../shared/components/UIElements/Search';
 import Filterbutton from '../../shared/components/UIElements/Filter';
 
 const UserPlaces = () => {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { isLoading,sendRequest } = useHttpClient();
   const[LoadedTheatres,setLoadedTheatres] = useState([]);
   const[currentPage,setcurrentPage] = useState(1);
   const postsPerPage = 20;
