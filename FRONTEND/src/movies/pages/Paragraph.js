@@ -1,11 +1,6 @@
 import './Movies.css';
 import React, { useEffect,useState } from 'react';
-import MovieList from '../components/MovieList';
-import { useHttpClient } from '../../shared/hooks/http-hook';
-import PaginationPage from '../../shared/components/UIElements/pagination';
-import Sortbutton from '../../shared/components/UIElements/Sort';
-import Searchbutton from '../../shared/components/UIElements/Search';
-import Filterbutton from '../../shared/components/UIElements/Filter';
+
 const Paragraph = props =>{
     
    return( <React.Fragment>
