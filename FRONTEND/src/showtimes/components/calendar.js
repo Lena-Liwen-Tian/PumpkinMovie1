@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
-import {addWeeks,subWeeks,startOfWeek,addDays,format,isSameDay,endOfWeek} from 'date-fns';
+import {addWeeks,subWeeks,addMonths,subMonths,startOfWeek,addDays,format,isSameMonth,isSameDay,endOfWeek,startOfMonth,endOfMonth,parse} from 'date-fns';
 import './calendar.css';
+import {useState}  from 'react';
+import ShowTime from '../pages/ShowTime';
+import { relativeTimeThreshold } from 'moment';
 import { Link } from 'react-router-dom';
 
 class Calendar extends React.Component {
@@ -116,7 +119,7 @@ class Calendar extends React.Component {
   render() {
     return (
       <div className="calendar">
-        <CalendarHeader />
+        {this.renderHeader()}
         {this.renderDays()}
         {this.renderCells()}
       </div>
