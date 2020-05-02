@@ -4,7 +4,12 @@ import Card from '../../shared/components/UIElements/Card';
 import Button from '../../shared/components/FormElements/Button';
 import './ShowList.css';
 
-const ShowList = ()=>{
+const ShowList = props=>{
+  
+
+
+
+
       if (props.items.length === 0) {
         return (
           <div className="place-list center">

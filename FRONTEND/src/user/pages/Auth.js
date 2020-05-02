@@ -15,6 +15,22 @@ import { AuthContext } from '../../shared/context/auth-context';
 import './Auth.css';
 
 const Auth = () => {
+  const upper = (Button) =>(props)=>{
+    class UpperButton extends React.Component{
+      render(){
+        return (
+          <Button {...props}>
+            {props.children.toString().toUpperCase()}
+          </Button>
+        )
+      }
+     
+    }
+    return <UpperButton/>;
+  }
+
+  const UpperButton = upper(Button);
+
   const auth = useContext(AuthContext);
   const [Error, setError] = useState();
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -153,13 +169,14 @@ const Auth = () => {
             onInput={inputHandler}
           />
           <p>{Error}</p>
-          <Button type="submit" disabled={!formState.isValid}>
+          
+          <UpperButton type="submit" disabled={!formState.isValid}>
             {isLoginMode ? 'LOGIN' : 'SIGNUP'}
-          </Button>
+          </UpperButton>
         </form>
-         <Button inverse onClick={switchModeHandler}>
+         <UpperButton inverse onClick={switchModeHandler}>
           SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
-        </Button>
+        </UpperButton>
       </Card>
 
     </React.Fragment>

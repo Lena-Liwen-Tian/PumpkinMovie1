@@ -18,6 +18,9 @@ const UserPlaces = () => {
   const[Search,setSearch] = useState("");
   const[originaltheatres,setoriginaltheatres]=useState([]);
   
+  function tolower(a){
+    return a.cinema_name.toLowerCase();
+  }
 
 
   useEffect(()=>{
@@ -43,8 +46,8 @@ const UserPlaces = () => {
     if(method === "Name (A-Z)"){
        theatres = LoadedTheatres.sort((a,b)=>{
        setSort(method);
-       if(a.cinema_name.toLowerCase() < b.cinema_name.toLowerCase()) return -1;
-       if(a.cinema_name.toLowerCase() > b.cinema_name.toLowerCase()) return 1;
+       if(tolower(a) < tolower(b)) return -1;
+       if(tolower(a) > tolower(b)) return 1;
        return 0;
      })
     }else if(method === "Distance (nearby)"){

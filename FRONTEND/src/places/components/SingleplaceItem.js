@@ -9,6 +9,21 @@ const SingleplaceItem = props => {
   const openMadal = () => setShow(true);
   const closeMadal = () => setShow(false);
   let coordinates={lat:props.lat,lng:props.lng};
+
+  const lower = (Button) =>(props)=>{
+    class LowerButton extends React.Component{
+      render(){
+        return (
+          <Button {...props}>
+            {props.children.toString().toLowerCase()}
+          </Button>
+        )
+      }   
+    }
+    return <LowerButton/>;
+  }
+
+const LowerButton = lower(Button);
   return (
     <React.Fragment>
       <ModalOverlay  title={props.name} show={show} hide={closeMadal} coordinates={coordinates} />  
@@ -25,7 +40,7 @@ const SingleplaceItem = props => {
               <p>Address: {props.address}</p>
     <p>Phone: {props.phone}</p>
   
-              <Button onClick={openMadal}>VIEW ON MAP</Button>
+              <LowerButton onClick={openMadal}>VIEW ON MAP</LowerButton>
               
             </div>
           </div>

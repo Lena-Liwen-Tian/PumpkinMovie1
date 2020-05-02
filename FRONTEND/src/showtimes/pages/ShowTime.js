@@ -10,10 +10,17 @@ import Filterbutton from '../../shared/components/UIElements/Filter';
 import './Showtime.css';
 
     const ShowTime = props => {
+      function tolower(a){
+        return a.title.toLowerCase();
+      }
+      function standard(character){
+        return character.replace(/\s/g,'').toLowerCase();
+   
+      }
+
       const { isLoading, error, sendRequest, clearError } = useHttpClient();
       const timeid = useParams().timeid;
       const [LoadedShowtimes, setLoadedShowtimes] = useState();
-  
   const [Sort,setSort] = useState("");
   const[Filter,setFilter] = useState("");
   const[Search,setSearch] = useState("");
@@ -39,10 +46,11 @@ import './Showtime.css';
         if(method === "Title (A-Z)"){
            movies =  LoadedShowtimes.sort((a,b)=>{
            setSort(method);
-           if(a.title.toLowerCase() < b.title.toLowerCase()) return -1;
-           if(a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+           if(tolower(a) < tolower(b)) return -1;
+           if(tolower(a) > tolower(a)) return 1;
            return 0;
          })
+
         }else if(method === "Time"){
           setSort(method);
           movies =  LoadedShowtimes.sort((a,b)=>{
@@ -59,7 +67,7 @@ import './Showtime.css';
        let title;
        let location;
        title = originalmovies.filter((contact) =>{
-         return contact.title.replace(/\s/g,'').toLowerCase().indexOf(e.replace(/\s/g,'').toLowerCase()) !== -1 ;
+         return standard(contact.title).indexOf(standard(e)) !== -1 ;
        });
        location = originalmovies.filter((contact) =>{
        return contact.theatre.name.replace(/\s/g,'').toLowerCase().split(',').join('').indexOf(e.replace(/\s/g,'').toLowerCase()) !== -1 ;

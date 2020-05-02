@@ -44,6 +44,11 @@ const Movies = () => {
    function toLower(a){
      return a.Title.toLowerCase();
    }
+   function standard(character){
+     return character.replace(/\s/g,'').toLowerCase();
+
+   }
+
    const sortby = method => {
      let movies;
      if(method === "Title (A-Z)"){
@@ -81,10 +86,10 @@ const Movies = () => {
     let title;
     let description;
     title = originalmovies.filter((contact) =>{
-      return contact.Title.replace(/\s/g,'').toLowerCase().indexOf(e.replace(/\s/g,'').toLowerCase()) !== -1 ;
+      return standard(contact.Title).indexOf(standard(e)) !== -1 ;
     });
     description = originalmovies.filter((contact) =>{
-    return contact.Actors.replace(/\s/g,'').toLowerCase().split(',').join('').indexOf(e.replace(/\s/g,'').toLowerCase()) !== -1 ;
+    return standard(contact.Actors).split(',').join('').indexOf(standard(e)) !== -1 ;
    });
     setLoadedMovies(title.length > 0 ? title:description);
   }
