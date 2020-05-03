@@ -1,11 +1,9 @@
 import { useParams } from 'react-router-dom';
 import React,{useState,useEffect} from 'react';
-import SingleplaceItem from './SingleplaceItem';
-import { useHttpClient } from '../../shared/hooks/http-hook';
-import ShowTimeList from '../../showtimes/components/ShowTimeList';
-const LowerButton = () =>{
-    const lower = (Button) =>(props)=>{
-    
+import Button from '../../shared/components/FormElements/Button';
+
+
+    const lower = (Button) =>(props)=>{ 
         class LowerButton extends React.Component{
           render(){
             return (
@@ -15,11 +13,11 @@ const LowerButton = () =>{
             )
           }   
         }
-        return <LowerButton/>;
+        return <LowerButton />;
         }
-        LowerButton = lower(Button);
+        
+    
 
-}
 
 
-export default LowerButton;
+export default lower;

@@ -4,7 +4,7 @@
   import Card from '../../shared/components/UIElements/Card';
   import Button from '../../shared/components/FormElements/Button';
   import './PlaceItem.css';
-  const BlueButton = () =>{
+
 
     const color = (Button) =>(props)=>{
         const mystyle = {backgroundColor:"DodgerBlue"}
@@ -19,8 +19,8 @@
         }
         return <BlueButton/>;
         }
-        ButtonButton = color(Button);
-  }
-  export default BlueButton;
+       
+  
+  export default color;
 
   

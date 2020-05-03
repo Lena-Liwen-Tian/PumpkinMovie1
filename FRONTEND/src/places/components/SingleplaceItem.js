@@ -1,16 +1,16 @@
-import Button from '../../shared/components/FormElements/Button';
+
 import React, { useState } from 'react';
 import './SingleplaceItem.css';
 import ModalOverlay from '../../shared/components/UIElements/ModalOverlay';
-
+import lower  from './Lower';
+import Button from '../../shared/components/FormElements/Button';
 const SingleplaceItem = props => {
 
   const [show,setShow] = useState(false);
   const openMadal = () => setShow(true);
   const closeMadal = () => setShow(false);
   let coordinates={lat:props.lat,lng:props.lng};
-
- 
+  const LowerButton = lower(Button);
   return (
     <React.Fragment>
       <ModalOverlay  title={props.name} show={show} hide={closeMadal} coordinates={coordinates} />  
