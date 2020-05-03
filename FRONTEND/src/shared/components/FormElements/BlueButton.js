@@ -2,7 +2,6 @@
   import React, { useState } from 'react';
   import { Link } from 'react-router-dom';
   import Card from '../../shared/components/UIElements/Card';
-  import Button from '../../shared/components/FormElements/Button';
   import './PlaceItem.css';
 
 

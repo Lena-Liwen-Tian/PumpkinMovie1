@@ -3,6 +3,7 @@ import React, { useState, useContext,useEffect } from 'react';
 import Card from '../../shared/components/UIElements/Card';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
+import upper from '../../shared/components/FormElements/Upper';
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import {
   VALIDATOR_EMAIL,
@@ -12,22 +13,12 @@ import {
 import { useForm } from '../../shared/hooks/form-hook';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
+
 import './Auth.css';
 
 const Auth = () => {
-  const upper = (Button) =>(props)=>{
-    class UpperButton extends React.Component{
-      render(){
-        return (
-          <Button {...props}>
-            {props.children.toString().toUpperCase()}
-          </Button>
-        )
-      }
-     
-    }
-    return <UpperButton/>;
-  }
+  
+
 
   const UpperButton = upper(Button);
 

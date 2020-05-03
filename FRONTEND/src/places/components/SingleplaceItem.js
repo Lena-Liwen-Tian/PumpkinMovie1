@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './SingleplaceItem.css';
 import ModalOverlay from '../../shared/components/UIElements/ModalOverlay';
-import lower  from './Lower';
+import lower  from '../../shared/components/FormElements/Lower';
 import Button from '../../shared/components/FormElements/Button';
 const SingleplaceItem = props => {
 
