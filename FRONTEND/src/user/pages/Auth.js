@@ -21,7 +21,6 @@ const Auth = () => {
 
 
   const UpperButton = upper(Button);
-
   const auth = useContext(AuthContext);
   const [Error, setError] = useState();
   const [isLoginMode, setIsLoginMode] = useState(true);
